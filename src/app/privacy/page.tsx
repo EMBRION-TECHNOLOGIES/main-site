@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
         <section>
           <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
           <p className="text-muted-foreground leading-relaxed">
-            EMBRION ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, 
+            EMBRION (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your privacy. This Privacy Policy explains how we collect, 
             use, disclose, and safeguard your information when you visit our website or use our services.
           </p>
         </section>
@@ -134,7 +134,7 @@ export default function PrivacyPolicy() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold mb-4">9. Children's Privacy</h2>
+          <h2 className="text-2xl font-semibold mb-4">9. Children&apos;s Privacy</h2>
           <p className="text-muted-foreground leading-relaxed">
             Our services are not intended for children under 13 years of age. We do not knowingly collect personal 
             information from children under 13. If you believe we have collected such information, please contact us.
@@ -153,7 +153,7 @@ export default function PrivacyPolicy() {
           <h2 className="text-2xl font-semibold mb-4">11. Changes to This Policy</h2>
           <p className="text-muted-foreground leading-relaxed">
             We may update this Privacy Policy from time to time. We will notify you of any changes by posting the 
-            new Privacy Policy on this page and updating the "Last updated" date.
+            new Privacy Policy on this page and updating the &ldquo;Last updated&rdquo; date.
           </p>
         </section>
 

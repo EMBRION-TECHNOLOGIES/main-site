@@ -224,6 +224,6 @@ export const cookieManager = CookieManager.getInstance();
 // Type declarations for global objects
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
+    gtag?: (...args: unknown[]) => void;
   }
 }

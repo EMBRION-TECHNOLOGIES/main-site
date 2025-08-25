@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Shield, BarChart3, Megaphone, Settings, RefreshCw, CheckCircle2, XCircle } from "lucide-react";
+import { Shield, BarChart3, Megaphone, Settings, RefreshCw, CheckCircle2 } from "lucide-react";
 import { cookieManager, type CookiePreferences } from "@/lib/cookie-manager";
 
 export default function CookieSettings() {
@@ -249,7 +248,7 @@ export default function CookieSettings() {
         <div className="bg-muted/30 rounded-lg p-4">
           <p className="text-sm text-muted-foreground">
             This feature shows all cookies currently stored by our website. 
-            You can view and manage these through your browser's developer tools.
+            You can view and manage these through your browser&apos;s developer tools.
           </p>
           <div className="mt-3">
             <Button
@@ -258,7 +257,7 @@ export default function CookieSettings() {
               onClick={() => {
                 const cookies = cookieManager.getAllCookies();
                 console.log('Current cookies:', cookies);
-                alert(`Current cookies logged to console. Check browser developer tools.`);
+                alert('Current cookies logged to console. Check browser developer tools.');
               }}
             >
               View Current Cookies

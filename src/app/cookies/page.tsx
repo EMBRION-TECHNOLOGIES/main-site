@@ -22,7 +22,7 @@ export default function CookiePolicy() {
           <p className="text-muted-foreground leading-relaxed">
             Cookies are small text files that are placed on your device when you visit a website. They are widely 
             used to make websites work more efficiently and to provide information to website owners. Cookies can 
-            be "persistent" or "session" cookies.
+            be &ldquo;persistent&rdquo; or &ldquo;session&rdquo; cookies.
           </p>
         </section>
 
@@ -152,7 +152,7 @@ export default function CookiePolicy() {
           <p className="text-muted-foreground leading-relaxed">
             When you first visit our website, you will see a cookie consent banner. You can accept all cookies, 
             reject non-essential cookies, or customize your preferences. You can change these settings at any time 
-            by clicking the "Cookie Settings" link in our footer.
+            by clicking the &ldquo;Cookie Settings&rdquo; link in our footer.
           </p>
         </section>
 
