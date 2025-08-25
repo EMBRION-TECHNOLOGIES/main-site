@@ -1,46 +1,12 @@
-import type { Metadata } from "next";
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { CheckCircle2, ExternalLink, ArrowRight, Zap, Users, TrendingUp, Shield, Rocket } from "lucide-react";
+import { SafeImage } from "@/components/ui/safe-image";
 
-export const metadata: Metadata = {
-  title: "Healthcare Technology Products",
-  description: "Discover our innovative healthcare technology solutions: MedSync for medication management and StewardAI for AI-powered decision support.",
-  keywords: [
-    "MedSync",
-    "StewardAI",
-    "healthcare products",
-    "medication management",
-    "AI healthcare",
-    "healthcare software",
-    "digital health",
-    "healthcare innovation"
-  ],
-  openGraph: {
-    title: "Healthcare Technology Products | EMBRION",
-    description: "Discover our innovative healthcare technology solutions: MedSync for medication management and StewardAI for AI-powered decision support.",
-    type: "website",
-    images: [
-      {
-        url: "/products-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EMBRION Healthcare Technology Products",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Healthcare Technology Products | EMBRION",
-    description: "Discover our innovative healthcare technology solutions: MedSync for medication management and StewardAI for AI-powered decision support.",
-  },
-  alternates: {
-    canonical: "/products",
-  },
-};
+
 
 export default function Products() {
   return (
@@ -52,11 +18,11 @@ export default function Products() {
           Our Products
         </div>
         <h1 className="text-4xl md:text-5xl font-semibold mb-6">
-          Healthcare Technology Products
+          Innovative Solutions, Built for Impact
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          Innovative healthcare technology solutions built for reliability and trust.
-          Discover how our products are transforming healthcare delivery.
+          Our flagship products are redefining healthcare technology across Africa and beyond, 
+          delivering measurable results for healthcare organizations and businesses.
         </p>
 
         {/* Product Stats */}
@@ -79,7 +45,25 @@ export default function Products() {
       {/* Enhanced Products Grid */}
       <div className="grid gap-8 md:grid-cols-2 max-w-6xl mx-auto">
         {products.map((product, index) => (
-          <Card key={product.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
+          <Card
+            key={product.id}
+            className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-2 animate-fade-in-up p-0"
+            style={{ animationDelay: `${index * 150}ms` }}
+          >
+            {/* Product Thumbnail */}
+            {product.thumbnail && (
+              <div className="relative overflow-hidden rounded-t-lg">
+                <Link href={`/products/${product.slug}`}>
+                  <SafeImage
+                    src={product.thumbnail}
+                    alt={`${product.name} thumbnail`}
+                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                </Link>
+              </div>
+            )}
+            
             <CardHeader className="pb-4">
               <div className="flex items-start justify-between mb-4">
                 <div>
@@ -136,15 +120,15 @@ export default function Products() {
               </div>
 
               {/* Enhanced CTA Buttons */}
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-3 pt-4 pb-4">
                 <Link href={`/products/${product.slug}`}>
-                  <Button variant="outline" className="group/btn flex-1">
+                  <Button variant="outline" className="group/btn flex-1 pb-3">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 {product.demoUrl && (
-                  <Button variant="ghost" asChild className="group/btn">
+                  <Button variant="ghost" asChild className="group/btn pb-3">
                     <a href={product.demoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="mr-2 h-4 w-4 group-hover/btn:scale-110 transition-transform" />
                       View Demo

@@ -20,6 +20,7 @@ export interface Product {
   description: string;
   features: string[];
   benefits: string[];
+  thumbnail?: string;
   screenshots?: string[];
   demoUrl?: string;
   pricing?: 'Free' | 'Paid' | 'Enterprise' | 'Contact Sales';
@@ -28,19 +29,29 @@ export interface Product {
 
 export interface CaseStudy {
   id: string;
-  title: string;
   slug: string;
-  client: string;
-  industry: string;
+  title: string;
+  summary: string;
+  description: string;
   challenge: string;
   solution: string;
   results: string[];
-  metrics?: {
-    label: string;
+  metrics?: Array<{
     value: string;
-    change: string;
-  }[];
+    label: string;
+    change?: string;
+  }>;
+  technologies: string[];
+  tools: string[];
+  platforms: string[];
+  category: string;
   featured?: boolean;
+  image?: string;
+  publishedAt: string;
+  client: string;
+  industry: string;
+  caseStudyUrl?: string;
+  liveUrl?: string;
 }
 
 export interface BlogPost {

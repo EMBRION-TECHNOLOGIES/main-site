@@ -11,11 +11,11 @@ export default function Footer() {
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-lg">E</span>
               </div>
-              <span className="font-bold text-xl">EMBRION</span>
+              <span className="font-bold text-xl">Embrion Technologies</span>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
-              Building high-reliability digital health systems that healthcare professionals can trust. 
-              Parent company of MedSync and StewardAI.
+              Nigerian technology company dedicated to creating high-quality digital products, platforms, and tools 
+              that enhance productivity, efficiency, and user engagement. Parent company of MedSync and StewardAI.
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -101,7 +101,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-border/50 mt-8 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} EMBRION. All rights reserved.
+            © {new Date().getFullYear()} Embrion Technologies. All rights reserved.
           </p>
           <div className="flex items-center space-x-4">
             <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">

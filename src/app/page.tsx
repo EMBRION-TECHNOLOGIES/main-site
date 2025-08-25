@@ -1,91 +1,68 @@
-import type { Metadata } from "next";
+import Script from "next/script";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { ArrowRight, CheckCircle, Star, Users, TrendingUp, Shield, Zap, Globe, Code, BarChart3, Share2, PenTool, Building2 } from "lucide-react";
 import { getFeaturedServices } from "@/data/services";
 import { getFeaturedProducts } from "@/data/products";
-import { CheckCircle2, ArrowRight, Star, Globe, Code, TrendingUp, Users, Zap } from "lucide-react";
-import Script from "next/script";
+import { SafeImage } from "@/components/ui/safe-image";
 
-export const metadata: Metadata = {
-  title: "EMBRION - High-Reliability Digital Health Systems",
-  description: "EMBRION is the parent of MedSync and StewardAI—building innovative healthcare technology solutions that healthcare professionals can trust.",
-  keywords: [
-    "healthcare technology",
-    "digital health systems",
-    "MedSync",
-    "StewardAI",
-    "healthcare innovation",
-    "healthcare software",
-    "AI healthcare",
-    "medication management"
-  ],
+export const metadata = {
+  title: "Embrion Technologies - Transforming Healthcare & Business Through Technology",
+  description: "At Embrion Technologies, we design and implement innovative, user-centric digital solutions that solve real-world problems, empower businesses, and advance healthcare systems.",
+  keywords: "Embrion Technologies, healthcare technology, digital solutions, MedSync, StewardAI, Nigeria.",
   openGraph: {
-    title: "EMBRION - High-Reliability Digital Health Systems",
-    description: "Building innovative healthcare technology solutions that healthcare professionals can trust.",
+    title: "Embrion Technologies - Transforming Healthcare & Business Through Technology",
+    description: "Innovative digital solutions for healthcare and business. Parent company of MedSync and StewardAI.",
     type: "website",
-    images: [
-      {
-        url: "/home-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EMBRION - High-Reliability Digital Health Systems",
-      },
-    ],
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "EMBRION - High-Reliability Digital Health Systems",
-    description: "Building innovative healthcare technology solutions that healthcare professionals can trust.",
-  },
-  alternates: {
-    canonical: "/",
+    title: "Embrion Technologies - Transforming Healthcare & Business Through Technology",
+    description: "Innovative digital solutions for healthcare and business. Parent company of MedSync and StewardAI.",
   },
 };
+
+// Icon mapping for services
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  'globe': Globe,
+  'code': Code,
+  'bar-chart-3': BarChart3,
+  'share-2': Share2,
+  'pen-tool': PenTool,
+  'building-2': Building2,
+  'zap': Zap
+};
+
+
 
 export default function Home() {
   const featuredServices = getFeaturedServices();
   const featuredProducts = getFeaturedProducts();
 
-  // JSON-LD structured data
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "EMBRION",
-    "description": "Building high-reliability digital health systems that healthcare professionals can trust.",
-    "url": process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
-    "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/logo.png`,
+    "name": "Embrion Technologies",
+    "alternateName": "Embrion",
+    "description": "Nigerian technology company dedicated to creating high-quality digital products, platforms, and tools that enhance productivity, efficiency, and user engagement.",
+    "url": "https://embriontech.com",
+    "logo": "https://embriontech.com/logo.png",
     "sameAs": [
-      "https://twitter.com/embrion_ai",
-      "https://linkedin.com/company/embrion"
+      "https://twitter.com/embriontech",
+      "https://linkedin.com/company/embriontech"
     ],
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "url": "/contact"
+      "email": "support@embriontech.com"
     },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Healthcare Technology Services",
-      "itemListElement": featuredServices.map(service => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": service.title,
-          "description": service.description
-        }
-      }))
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "NG"
     },
-    "makesOffer": featuredProducts.map(product => ({
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "SoftwareApplication",
-        "name": product.name,
-        "description": product.description,
-        "applicationCategory": "HealthcareApplication"
-      }
-    }))
+    "foundingDate": "2024",
+    "legalName": "Embrion Technologies"
   };
 
   return (
@@ -95,88 +72,68 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-
+      
       {/* Enhanced Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_50%)]" />
-        
-        {/* Animated Background Shapes */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse delay-500" />
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-muted/30">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.1),transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(120,119,198,0.1),transparent_50%)]"></div>
         </div>
 
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-sm border rounded-full text-sm font-medium text-muted-foreground mb-8 animate-fade-in">
-              <TrendingUp className="h-4 w-4 text-primary" />
-              Trusted by Healthcare Professionals
-            </div>
+        {/* Trust Badge */}
+        <div className="absolute top-4 sm:top-8 left-1/2 transform -translate-x-1/2 z-20">
+          <div className="bg-background/80 backdrop-blur-sm border border-border/50 rounded-full px-3 sm:px-4 py-2 flex items-center gap-2 text-xs sm:text-sm text-muted-foreground max-w-[90vw] sm:max-w-none">
+            <Shield className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
+            <span className="whitespace-nowrap">Trusted by Hospitals, Clinics, Pharmacies & Businesses</span>
+          </div>
+        </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up">
-              Building High‑Reliability
-              <span className="text-primary block bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Digital Health Systems
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 pt-6 sm:pt-6">
+          {/* Main Headline */}
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-in-up">
+          Transforming Healthcare & Business
+              <span className="text-primary block bg-gradient-to-r from-primary to-blue-400 bg-clip-text text-transparent">
+            Through Technology
               </span>
             </h1>
+          
+          {/* Subtext */}
+          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+            At <strong>Embrion Technologies</strong>, we design and implement{" "}
+            <span className="text-foreground font-semibold">innovative, user-centric digital solutions</span>{" "}
+            that solve real-world problems, empower businesses, and advance healthcare systems.
+          </p>
 
-            {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
-              EMBRION is the parent of MedSync and StewardAI—creating innovative
-              healthcare technology solutions that healthcare professionals can trust.
-            </p>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Link href="/services">
+              <Button size="lg" className="text-lg px-8 py-6 group">
+                Explore Solutions
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button size="lg" variant="outline" className="text-lg px-8 py-6 group">
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
 
-            {/* Key Benefits */}
-            <div className="flex flex-wrap justify-center gap-6 mb-10 animate-fade-in-up delay-300">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-green-500" />
-                <span>HIPAA Compliant</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-green-500" />
-                <span>FDA Approved</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-green-500" />
-                <span>99.9% Uptime</span>
-              </div>
+          {/* Social Proof */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <Users className="h-4 w-4" />
+              <span>Trusted by leading healthcare institutions</span>
             </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-400">
-              <Link href="/services">
-                <Button size="lg" className="text-lg px-8 py-6 group hover:scale-105 transition-transform duration-200">
-                  Explore Our Services
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link href="/products">
-                <Button variant="outline" size="lg" className="text-lg px-8 py-6 group hover:scale-105 transition-transform duration-200 border-2">
-                  View Products
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+            <div className="flex items-center gap-2">
+              <Star className="h-4 w-4 text-yellow-500" />
+              <span>Featured in TechCrunch, BuzzFeed, Medium</span>
             </div>
-
-            {/* Social Proof */}
-            <div className="mt-12 pt-8 border-t border-border/50 animate-fade-in-up delay-500">
-              <p className="text-sm text-muted-foreground mb-4">Trusted by leading healthcare organizations</p>
-              <div className="flex justify-center items-center gap-8 opacity-60">
-                <div className="w-24 h-12 bg-muted rounded flex items-center justify-center">
-                  <span className="text-xs font-medium text-muted-foreground">Hospital A</span>
-                </div>
-                <div className="w-24 h-12 bg-muted rounded flex items-center justify-center">
-                  <span className="text-xs font-medium text-muted-foreground">Clinic B</span>
-                </div>
-                <div className="w-24 h-12 bg-muted rounded flex items-center justify-center">
-                  <span className="text-xs font-medium text-muted-foreground">Pharmacy C</span>
-                </div>
-              </div>
+            <div className="flex items-center gap-2">
+              <TrendingUp className="h-4 w-4 text-green-500" />
+              <span>35% improvement in medication adherence</span>
             </div>
           </div>
         </div>
@@ -184,191 +141,147 @@ export default function Home() {
 
       {/* Featured Services Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-              <Zap className="h-4 w-4" />
-              Featured Services
-            </div>
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-              Comprehensive Healthcare Solutions
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Comprehensive Digital & Healthcare Solutions
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From digital transformation to AI-powered decision support, we provide 
-              end-to-end healthcare technology solutions.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              From <strong>custom software</strong> to <strong>AI-powered healthcare platforms</strong>, 
+              we provide end-to-end solutions designed to deliver measurable results.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-            {featuredServices.map((service, index) => (
-              <Card key={service.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                      {service.icon === 'globe' && <Globe className="h-6 w-6 text-primary" />}
-                      {service.icon === 'code' && <Code className="h-6 w-6 text-primary" />}
-                      {service.icon === 'share-2' && <Globe className="h-6 w-6 text-primary" />}
-                    </div>
-                    <Badge variant="default" className="gap-1">
-                      <Star className="h-3 w-3" />
-                      Featured
-                    </Badge>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredServices.map((service, index) => {
+              const IconComponent = service.icon ? iconMap[service.icon] || Globe : Globe;
+              return (
+                <div
+                  key={service.slug}
+                  className="group bg-background border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <IconComponent className="h-6 w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                
-                <CardContent className="flex flex-col h-full">
-                  <CardDescription className="mb-6 flex-1 text-base leading-relaxed">
-                    {service.summary}
-                  </CardDescription>
-
-                  {/* Enhanced Features Section */}
-                  <div className="space-y-4 mb-6">
-                    <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      Key Features
-                    </h4>
-                    <ul className="space-y-2">
-                      {service.features.slice(0, 3).map((feature, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="line-clamp-2">{feature}</span>
-          </li>
-                      ))}
-                      {service.features.length > 3 && (
-                        <li className="text-xs text-muted-foreground mt-2">
-                          +{service.features.length - 3} more features
-          </li>
-                      )}
-                    </ul>
-                  </div>
-
-                  {/* Enhanced CTA */}
-                  <div className="pt-4 border-t border-border/50 flex items-center justify-between text-sm text-primary group-hover:text-primary/80 transition-colors">
-                    <span className="font-medium">Learn more</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/services">
-              <Button variant="ghost" size="lg" className="text-lg group">
-                View All Services
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="inline-flex items-center text-primary hover:text-primary/80 font-medium group-hover:gap-2 transition-all"
+                  >
+                    Learn More
+                    <ArrowRight className="ml-1 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Featured Products Section */}
       <section className="py-20">
-        <div className="container">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 text-blue-600 rounded-full text-sm font-medium mb-4">
-              <Users className="h-4 w-4" />
-              Our Products
-            </div>
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-              Innovative Healthcare Technology
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Innovative Solutions, Built for Impact
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Built for reliability, security, and trust—our products transform 
-              how healthcare is delivered.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Our flagship products are redefining healthcare technology across Africa and beyond.
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {featuredProducts.map((product, index) => (
-              <Card key={product.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <CardTitle className="text-2xl mb-2">{product.name}</CardTitle>
-                      <CardDescription className="text-lg text-foreground">
-                        {product.tagline}
-                      </CardDescription>
+              <div
+                key={product.slug}
+                className={`group ${
+                  index % 2 === 1 ? "lg:order-2" : ""
+                }`}
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <div className="bg-muted/30 rounded-2xl p-8 border border-border/50">
+                  {/* Product Thumbnail */}
+                  {product.thumbnail && (
+                    <div className="mb-6 overflow-hidden rounded-xl">
+                      <Link href={`/products/${product.slug}`}>
+                        <SafeImage
+                          src={product.thumbnail}
+                          alt={`${product.name} thumbnail`}
+                          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        />
+                      </Link>
                     </div>
-                    <Badge variant="outline">{product.pricing}</Badge>
+                  )}
+                  
+                  <div className="h-16 w-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Globe className="h-8 w-8 text-primary" />
                   </div>
-                </CardHeader>
-
-                <CardContent className="space-y-6">
-                  <p className="text-muted-foreground leading-relaxed">
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
+                    {product.name}
+                  </h3>
+                  <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
                     {product.description}
                   </p>
-
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold mb-2 text-foreground">Key Features:</h4>
-                      <div className="grid gap-2">
-                        {product.features.slice(0, 4).map((feature, index) => (
-                          <div key={index} className="flex items-center gap-2 text-sm">
-                            <CheckCircle2 className="h-4 w-4 text-green-500 flex-shrink-0" />
-                            <span>{feature}</span>
-                          </div>
-                        ))}
+                  
+                  {/* Product Features */}
+                  <div className="space-y-3 mb-8">
+                    {product.features?.slice(0, 4).map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center gap-3">
+                        <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground">{feature}</span>
                       </div>
-                    </div>
+                    ))}
                   </div>
 
-                  <div className="flex gap-3 pt-4">
+                  {/* CTA Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-3">
                     <Link href={`/products/${product.slug}`}>
-                      <Button variant="outline" className="group/btn">
-                        Learn More
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
+                      <Button className="w-full sm:w-auto">
+                        View Demo
                       </Button>
                     </Link>
-                    {product.demoUrl && (
-                      <Button variant="ghost" asChild>
-                        <a href={product.demoUrl} target="_blank" rel="noopener noreferrer">
-                          View Demo
-                        </a>
+                    <Link href="/contact">
+                      <Button variant="outline" className="w-full sm:w-auto">
+                        Contact Sales
                       </Button>
-                    )}
+                    </Link>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/products">
-              <Button variant="ghost" size="lg" className="text-lg group">
-                Explore All Products
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-primary-foreground">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-6">
-            Ready to Transform Your Healthcare Technology?
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Transform Your Business?
           </h2>
-          <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Let&apos;s discuss how our services and products can help your organization
-            deliver better patient care and improve operational efficiency.
+          <p className="text-xl mb-8 text-primary-foreground/90 max-w-2xl mx-auto">
+            Let&apos;s build innovative solutions together. Our team is ready to help you scale through 
+            digital transformation, technical support, and strategic guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-6 group hover:scale-105 transition-transform duration-200">
-                Get Started Today
+              <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
+                Start Your Project
               </Button>
             </Link>
-            <Link href="/about">
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary group hover:scale-105 transition-transform duration-200">
-                Learn More About Us
+            <Link href="/case-studies">
+              <Button size="lg"  variant="secondary" className="text-lg px-8 py-6">
+                View Case Studies
               </Button>
             </Link>
           </div>
-        </div>
+    </div>
       </section>
     </>
   );

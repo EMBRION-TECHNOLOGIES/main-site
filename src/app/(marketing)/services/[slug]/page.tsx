@@ -159,7 +159,7 @@ export default async function ServicePage({ params }: ServicePageProps) {
               <p className="text-sm text-muted-foreground">
                 Interested in this service for your organization?
               </p>
-              <div className="space-y-3">
+              <div className="flex flex-col gap-4">
                 <Link href="/contact" className="w-full">
                   <Button className="w-full">Schedule a Consultation</Button>
                 </Link>

@@ -1,210 +1,182 @@
-import type { Metadata } from "next";
-import { services } from "@/data/services";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckCircle2, Globe, Share2, BarChart3, Code, PenTool, Target, ArrowRight, Zap, Users, TrendingUp } from "lucide-react";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-
-export const metadata: Metadata = {
-  title: "Healthcare Technology Services",
-  description: "From SEO websites to AI‑powered digital solutions. Comprehensive healthcare technology services including software development, consulting, and digital marketing.",
-  keywords: [
-    "healthcare services",
-    "healthcare technology",
-    "software development",
-    "healthcare consulting",
-    "digital marketing",
-    "SEO services",
-    "AI healthcare",
-    "healthcare innovation"
-  ],
-  openGraph: {
-    title: "Healthcare Technology Services | EMBRION",
-    description: "From SEO websites to AI‑powered digital solutions. Comprehensive healthcare technology services that drive results.",
-    type: "website",
-    images: [
-      {
-        url: "/services-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "EMBRION Healthcare Technology Services",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Healthcare Technology Services | EMBRION",
-    description: "From SEO websites to AI‑powered digital solutions. Comprehensive healthcare technology services that drive results.",
-  },
-  alternates: {
-    canonical: "/services",
-  },
-};
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Search, Filter, ArrowRight, Globe, Code, BarChart3, Share2, PenTool, Building2, Zap } from "lucide-react";
+import { services } from "@/data/services";
 
 // Icon mapping for services
-const iconMap = {
-  globe: Globe,
-  'share-2': Share2,
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  'globe': Globe,
+  'code': Code,
   'bar-chart-3': BarChart3,
-  code: Code,
+  'share-2': Share2,
   'pen-tool': PenTool,
-  target: Target,
+  'building-2': Building2,
+  'zap': Zap
 };
 
-// Category colors and icons
-const categoryConfig = {
-  marketing: {
-    color: "bg-blue-500/10 text-blue-600 border-blue-200",
-    icon: Globe,
-    label: "Digital Marketing"
-  },
-  development: {
-    color: "bg-green-500/10 text-green-600 border-green-200",
-    icon: Code,
-    label: "Software Development"
-  },
-  consulting: {
-    color: "bg-purple-500/10 text-purple-600 border-purple-200",
-    icon: Users,
-    label: "Healthcare Consulting"
-  }
-};
+export default function ServicesPage() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
-export default function Services() {
+  const filteredServices = services.filter((service) => {
+    const matchesSearch = service.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         service.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === "all" || service.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  const categories = [
+    { value: "all", label: "All Services" },
+    { value: "development", label: "Development" },
+    { value: "marketing", label: "Marketing" },
+    { value: "consulting", label: "Consulting" }
+  ];
+
   return (
     <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-6xl">
-      {/* Enhanced Header Section */}
+      {/* Hero Section */}
       <div className="text-center mb-16">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
-          <Zap className="h-4 w-4" />
+
+      <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+          <Globe className="h-4 w-4" />
           Our Services
         </div>
-        <h1 className="text-4xl md:text-5xl font-semibold mb-6">
-          Healthcare Technology Services
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          Comprehensive Digital & Healthcare Solutions
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-          From SEO websites to AI‑powered digital solutions, we provide comprehensive
-          healthcare technology services that drive results.
+          From <strong>custom software</strong> to <strong>AI-powered healthcare platforms</strong>, 
+          we provide end-to-end solutions designed to deliver measurable results for your business.
         </p>
-        
-        {/* Service Stats */}
-        <div className="flex flex-wrap justify-center gap-8 mt-12">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">{services.length}</div>
-            <div className="text-sm text-muted-foreground">Services Available</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">3</div>
-            <div className="text-sm text-muted-foreground">Service Categories</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-            <div className="text-sm text-muted-foreground">Support Available</div>
-          </div>
-        </div>
       </div>
 
-      {/* Enhanced Services Grid */}
+      {/* Search and Filter */}
+      <div className="flex flex-col sm:flex-row gap-4 mb-12">
+        <div className="relative flex-1">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            placeholder="Search services..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="pl-10"
+          />
+        </div>
+        <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+          <SelectTrigger className="w-full sm:w-48">
+            <Filter className="h-4 w-4 mr-2" />
+            <SelectValue placeholder="Filter by category" />
+          </SelectTrigger>
+          <SelectContent>
+            {categories.map((category) => (
+              <SelectItem key={category.value} value={category.value}>
+                {category.label}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
+      {/* Services Grid */}
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {services.map((service, index) => {
-          const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Globe;
-          const category = categoryConfig[service.category as keyof typeof categoryConfig];
-          const CategoryIcon = category.icon;
-
+        {filteredServices.map((service) => {
+          const IconComponent = service.icon ? iconMap[service.icon] || Globe : Globe;
           return (
-            <Link key={service.id} href={`/services/${service.slug}`}>
-              <Card className="group hover:shadow-lg transition-all duration-300 cursor-pointer h-full hover:-translate-y-2 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                <CardHeader className="pb-4">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors">
-                      <IconComponent className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="flex flex-col items-end gap-2">
-                      <Badge variant={service.featured ? "default" : "secondary"} className="gap-1">
-                        {service.featured ? (
-                          <>
-                            <TrendingUp className="h-3 w-3" />
-                            Featured
-                          </>
-                        ) : (
-                          <>
-                            <CategoryIcon className="h-3 w-3" />
-                            {category.label}
-                          </>
-                        )}
-                      </Badge>
-                    </div>
+            <Card key={service.id} className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <IconComponent className="h-6 w-6 text-primary" />
                   </div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                
-                <CardContent className="flex flex-col h-full">
-                  <CardDescription className="mb-6 flex-1 text-base leading-relaxed">
-                    {service.summary}
-                  </CardDescription>
+                  <Badge variant="outline" className="capitalize">
+                    {service.category}
+                  </Badge>
+                </div>
+                <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                  {service.title}
+                </CardTitle>
+                <CardDescription className="text-base leading-relaxed">
+                  {service.summary}
+                </CardDescription>
+              </CardHeader>
+              
+              <CardContent className="space-y-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
 
-                  {/* Enhanced Features Section */}
-                  <div className="space-y-4 mb-6">
-                    <h4 className="text-sm font-semibold text-foreground flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      Key Features
-                    </h4>
-                    <ul className="space-y-2">
-                      {service.features.slice(0, 3).map((feature, index) => (
-                        <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="line-clamp-2">{feature}</span>
-                        </li>
-                      ))}
-                      {service.features.length > 3 && (
-                        <li className="text-xs text-muted-foreground mt-2">
-                          +{service.features.length - 3} more features
-                        </li>
-                      )}
-                    </ul>
+                {/* Key Features */}
+                <div className="space-y-3">
+                  <h4 className="text-sm font-semibold text-foreground">Key Features:</h4>
+                  <div className="space-y-2">
+                    {service.features.slice(0, 3).map((feature, index) => (
+                      <div key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                    {service.features.length > 3 && (
+                      <div className="text-xs text-muted-foreground mt-2">
+                        +{service.features.length - 3} more features
+                      </div>
+                    )}
                   </div>
+                </div>
 
-                  {/* Enhanced CTA */}
-                  <div className="pt-4 border-t border-border/50 flex items-center justify-between text-sm text-primary group-hover:text-primary/80 transition-colors">
-                    <span className="font-medium">Learn more</span>
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+                {/* CTA */}
+                <div className="pt-4 border-t border-border/50">
+                  <Link href={`/services/${service.slug}`}>
+                    <Button variant="ghost" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                      Learn More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
           );
         })}
       </div>
 
-      {/* Enhanced CTA Section */}
-      <section className="mt-20 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-6">
-            Ready to Transform Your Healthcare Technology?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Let&apos;s discuss how our comprehensive services can help your organization 
-            achieve better patient outcomes and operational efficiency.
+      {/* CTA Section */}
+      {filteredServices.length === 0 && (
+        <div className="text-center py-16">
+          <h3 className="text-xl font-semibold mb-4">No services found</h3>
+          <p className="text-muted-foreground mb-6">
+            Try adjusting your search terms or category filter.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <Button size="lg" className="text-lg px-8 py-6 group hover:scale-105 transition-transform duration-200">
-                Schedule a Consultation
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link href="/case-studies">
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 group hover:scale-105 transition-transform duration-200">
-                View Success Stories
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </div>
+          <Button onClick={() => { setSearchTerm(""); setSelectedCategory("all"); }}>
+            Clear Filters
+          </Button>
         </div>
-      </section>
+      )}
+
+      {/* Bottom CTA */}
+      <div className="text-center mt-16 pt-12 border-t border-border/50">
+        <h2 className="text-2xl font-bold mb-4">Need a Custom Solution?</h2>
+        <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          We specialize in creating tailored digital solutions for healthcare organizations and businesses. 
+          Let&apos;s discuss how we can help transform your operations.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/contact">
+            <Button size="lg" className="text-lg px-8 py-6">
+              Get Started
+            </Button>
+          </Link>
+          <Link href="/case-studies">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+              View Case Studies
+            </Button>
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }

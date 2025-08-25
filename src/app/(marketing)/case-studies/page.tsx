@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowRight, TrendingUp, Search } from "lucide-react";
+import { ArrowRight, TrendingUp, Search, ChartLine } from "lucide-react";
 import Link from "next/link";
 import { useState, useMemo } from "react";
 
@@ -38,8 +38,13 @@ export default function CaseStudies() {
 
   return (
     <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-6xl">
-      {/* Header Section */}
+
       <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
+          <ChartLine className="h-4 w-4" />
+          Our Case Studies
+        </div>
+
         <h1 className="text-4xl md:text-5xl font-semibold mb-6">
           Healthcare Technology Success Stories
         </h1>

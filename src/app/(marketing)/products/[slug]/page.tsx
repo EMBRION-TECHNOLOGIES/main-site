@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, CheckCircle2, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { SafeImage } from "@/components/ui/safe-image";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -75,6 +76,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </Link>
       </div>
 
+      {/* Product Thumbnail */}
+      {product.thumbnail && (
+        <div className="mb-12">
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+            <SafeImage
+              src={product.thumbnail}
+              alt={`${product.name} thumbnail`}
+              className="w-full h-96 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+          </div>
+        </div>
+      )}
+
       {/* Product Header */}
       <div className="mb-16">
         <div className="flex items-start justify-between mb-6">
@@ -135,6 +150,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
             </CardContent>
           </Card>
+
+          {/* Screenshots Section */}
+          {/* <ScreenshotGallery screenshots={product.screenshots || []} productName={product.name} /> */}
+
         </div>
 
         {/* Sidebar */}
@@ -158,6 +177,48 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </CardContent>
           </Card>
 
+          {/* Quick Features Preview */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Quick Overview</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {product.features.slice(0, 4).map((feature, index) => (
+                  <div key={index} className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-sm text-muted-foreground">{feature}</span>
+                  </div>
+                ))}
+                {product.features.length > 4 && (
+                  <p className="text-xs text-muted-foreground pt-2">
+                    +{product.features.length - 4} more features
+                  </p>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Demo Card */}
+          {product.demoUrl && (
+            <Card className="border-green-200 bg-green-50/50">
+              <CardHeader>
+                <CardTitle className="text-green-800">Live Demo Available</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-green-700 mb-4">
+                  Experience this product in action with our live demo.
+                </p>
+                <Button asChild className="w-full bg-green-600 hover:bg-green-700">
+                  <a href={product.demoUrl} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    Launch Demo
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          )}
+
           {/* CTA Card */}
           <Card>
             <CardHeader>
@@ -169,16 +230,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </p>
               <div className="space-y-3">
                 <Link href="/contact" className="w-full">
-                  <Button className="w-full">Schedule a Demo</Button>
+                  <Button className="w-full">Contact Us</Button>
                 </Link>
-                {product.demoUrl && (
-                  <Button variant="outline" asChild className="w-full">
-                    <a href={product.demoUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      View Demo
-                    </a>
-                  </Button>
-                )}
+           
                 <Link href="/products" className="w-full">
                   <Button variant="ghost" className="w-full">View All Products</Button>
                 </Link>
@@ -215,3 +269,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
     </main>
   );
 }
+
+
+// {product.demoUrl && (
+//   <Button variant="outline" asChild className="w-full mt-4">
+//     <a href={product.demoUrl} target="_blank" rel="noopener noreferrer">
+//       <ExternalLink className="mr-2 h-4 w-4" />
+//       View Demo
+//     </a>
+//   </Button>
+// )}

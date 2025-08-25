@@ -11,17 +11,17 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo - Left side */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="h-9 w-9 rounded-lg bg-primary flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-200">
-                <span className="text-primary-foreground font-bold text-lg">E</span>
-              </div>
-              <span className="font-bold text-xl tracking-tight">EMBRION</span>
-            </Link>
+                             <Link href="/" className="flex items-center space-x-3 group">
+                   <div className="h-9 w-9 rounded-lg bg-primary flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-200">
+                     <span className="text-primary-foreground font-bold text-lg">E</span>
+                   </div>
+                   <span className="font-bold text-xl tracking-tight">Embrion</span>
+                 </Link>
           </div>
 
           {/* Navigation - Center */}
-          <nav className="hidden lg:flex items-center justify-center flex-1 max-w-2xl mx-8">
-            <div className="flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center justify-center flex-1 max-w-2xl mx-2">
+            <div className="flex items-center space-x-12">
               <Link 
                 href="/about" 
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 relative group"
@@ -82,34 +82,34 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         <div className="lg:hidden border-t">
-          <nav className="flex items-center justify-center space-x-8 py-3 overflow-x-auto">
+          <nav className="grid grid-cols-5 py-3">
             <Link 
               href="/about" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors text-center px-2 py-1 rounded hover:bg-muted/50"
             >
               About
             </Link>
             <Link 
               href="/services" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors text-center px-2 py-1 rounded hover:bg-muted/50"
             >
               Services
             </Link>
             <Link 
               href="/products" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors text-center px-2 py-1 rounded hover:bg-muted/50"
             >
               Products
             </Link>
             <Link 
               href="/case-studies" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors text-center px-1 py-1 rounded hover:bg-muted/50"
             >
               Case Studies
             </Link>
             <Link 
               href="/investors" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+              className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors text-center px-2 py-1 rounded hover:bg-muted/50"
             >
               Investors
             </Link>

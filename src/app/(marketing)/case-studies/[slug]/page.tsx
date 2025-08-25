@@ -211,7 +211,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               <p className="text-sm text-muted-foreground">
                 Want to achieve similar results for your organization?
               </p>
-              <div className="space-y-3">
+              <div className="flex flex-col gap-3">
                 <Link href="/contact" className="w-full">
                   <Button className="w-full">Schedule a Consultation</Button>
                 </Link>

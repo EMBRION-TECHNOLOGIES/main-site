@@ -1,165 +1,143 @@
-import { CaseStudy } from '@/types/content';
+import type { CaseStudy } from "@/types/content";
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: 'medsync-pharmacy-implementation',
-    title: 'MedSync Implementation at Regional Health System',
-    slug: 'medsync-pharmacy-implementation',
-    client: 'Regional Health System',
-    industry: 'Healthcare System',
-    challenge: 'A regional health system with 15 pharmacies was struggling with medication synchronization, leading to 23% medication errors, poor patient adherence, and inefficient pharmacy workflows. Patients were frequently missing doses due to inconsistent refill schedules.',
-    solution: 'Implemented MedSync across all 15 pharmacy locations with custom integration to their existing EHR system. Provided comprehensive staff training and established medication synchronization protocols. Created automated refill management and patient communication systems.',
+    id: "healthcare-digital-transformation",
+    slug: "healthcare-digital-transformation",
+    title: "Regional Hospital Network Digital Transformation",
+    summary: "Complete digital transformation of a 15-hospital network using MedSync and StewardAI",
+    description: "A major regional healthcare network was struggling with outdated systems, poor patient engagement, and inefficient operations. They needed a comprehensive digital transformation strategy to improve care quality and operational efficiency.",
+    challenge: "The network faced fragmented technology systems, poor patient engagement, and inefficient workflows that were impacting care quality and increasing operational costs.",
+    solution: "Implemented a phased digital transformation using MedSync for medication management and StewardAI for clinical decision support. Provided comprehensive staff training and established new digital workflows.",
     results: [
-      'Reduced medication errors by 87% within 6 months',
-      'Improved patient adherence rates from 68% to 94%',
-      'Streamlined pharmacy workflows, reducing refill processing time by 65%',
-      'Enhanced patient satisfaction scores from 6.2 to 9.1/10',
-      'Generated $2.3M in annual cost savings through reduced readmissions'
+      "Modernized technology infrastructure across all 15 facilities",
+      "Improved patient engagement by 73% through digital platforms",
+      "Reduced operational costs by 28% through process optimization",
+      "Enhanced care coordination between facilities by 89%",
+      "Increased patient satisfaction scores from 5.8 to 8.7/10"
     ],
     metrics: [
-      {
-        label: 'Medication Errors',
-        value: '87% Reduction',
-        change: 'From 23% to 3%'
-      },
-      {
-        label: 'Patient Adherence',
-        value: '94% Rate',
-        change: '+26% improvement'
-      },
-      {
-        label: 'Processing Time',
-        value: '65% Faster',
-        change: 'From 45 to 16 minutes'
-      },
-      {
-        label: 'Cost Savings',
-        value: '$2.3M Annual',
-        change: 'Through reduced readmissions'
-      }
+      { value: "73%", label: "Patient Engagement Increase", change: "+73%" },
+      { value: "28%", label: "Cost Reduction", change: "-28%" },
+      { value: "89%", label: "Care Coordination Improvement", change: "+89%" },
+      { value: "8.7/10", label: "Patient Satisfaction", change: "+2.9 points" }
     ],
-    featured: true
+    technologies: ["MedSync", "StewardAI", "Next.js", "React", "Node.js"],
+    tools: ["AWS", "PostgreSQL", "Redis", "Docker", "Kubernetes"],
+    platforms: ["Web", "Mobile", "Tablet"],
+    category: "healthcare",
+    featured: true,
+    image: "/images/case-studies/healthcare-transformation.jpg",
+    publishedAt: "2024-12-01",
+    client: "Regional Healthcare Network",
+    industry: "Healthcare System",
+    caseStudyUrl: "/case-studies/healthcare-digital-transformation",
+    liveUrl: "/products/medsync"
   },
   {
-    id: 'stewardai-diagnostic-accuracy',
-    title: 'StewardAI Improves Diagnostic Accuracy at Teaching Hospital',
-    slug: 'stewardai-diagnostic-accuracy',
-    client: 'University Teaching Hospital',
-    industry: 'Academic Medical Center',
-    challenge: 'A major teaching hospital was experiencing diagnostic delays and accuracy issues, particularly in emergency departments. Physicians were struggling with complex cases, leading to longer patient stays and increased healthcare costs.',
-    solution: 'Deployed StewardAI across emergency departments and radiology units. Integrated AI decision support with existing clinical workflows. Provided specialized training for medical staff on AI-assisted diagnosis and treatment planning.',
+    id: "interpocket-mvp",
+    slug: "interpocket-mvp",
+    title: "Interpocket: Peer-to-Peer Wallet MVP Development",
+    summary: "Rapid MVP development for Interpocket fintech startup in 3 months",
+    description: "Interpocket needed to quickly develop and launch a secure peer-to-peer wallet platform to meet investor deadlines and start user acquisition. They required a scalable, secure solution that could handle virtual financial connections and real-time transactions.",
+    challenge: "Tight 3-month deadline to develop a secure, scalable peer-to-peer wallet platform with complex compliance requirements and real-time transaction capabilities.",
+    solution: "Built Interpocket using React Native for mobile apps and a robust Node.js backend. Implemented security best practices and compliance features from day one, creating a seamless virtual pocket connection experience.",
     results: [
-      'Improved diagnostic accuracy by 42% in emergency cases',
-      'Reduced diagnostic time by 58% for complex cases',
-      'Decreased average patient length of stay by 2.3 days',
-      'Enhanced physician confidence scores by 31%',
-      'Generated $1.8M in annual cost savings'
+      "Successfully launched Interpocket MVP within 3-month deadline",
+      "Achieved 10,000+ users in first quarter",
+      "Processed $2M+ in transactions in first 6 months",
+      "Maintained 99.9% uptime during launch period",
+      "Received positive investor feedback and secured funding",
+      "Successfully launched on Google Play Store"
     ],
     metrics: [
-      {
-        label: 'Diagnostic Accuracy',
-        value: '42% Improvement',
-        change: 'From 78% to 94%'
-      },
-      {
-        label: 'Diagnostic Time',
-        value: '58% Faster',
-        change: 'From 4.2 to 1.8 hours'
-      },
-      {
-        label: 'Patient Stay',
-        value: '2.3 Days Shorter',
-        change: 'From 6.1 to 3.8 days'
-      },
-      {
-        label: 'Cost Savings',
-        value: '$1.8M Annual',
-        change: 'Through efficiency gains'
-      }
+      { value: "3 months", label: "MVP Development Time", change: "On schedule" },
+      { value: "10,000+", label: "Users in Q1", change: "Exceeded target" },
+      { value: "$2M+", label: "Transaction Volume", change: "+$2M" },
+      { value: "99.9%", label: "Uptime", change: "Above SLA" }
     ],
-    featured: true
+    technologies: ["React Native", "Node.js", "PostgreSQL", "Redis", "AWS"],
+    tools: ["Docker", "Jest", "Cypress", "GitHub Actions", "Sentry"],
+    platforms: ["iOS", "Android", "Web"],
+    category: "fintech",
+    featured: true,
+    image: "/images/case-studies/fintech-mvp.jpg",
+    publishedAt: "2024-11-15",
+    client: "Interpocket Payment Solutions Limited",
+    industry: "Financial Technology",
+    caseStudyUrl: "/case-studies/interpocket-mvp",
+    liveUrl: "/products/interpocket"
   },
   {
-    id: 'healthcare-consulting-transformation',
-    title: 'Digital Transformation Strategy for Rural Healthcare Network',
-    slug: 'healthcare-consulting-transformation',
-    client: 'Rural Healthcare Network',
-    industry: 'Rural Healthcare',
-    challenge: 'A network of 8 rural hospitals and 12 clinics was struggling with outdated technology, poor patient engagement, and inefficient operations. They needed a comprehensive digital transformation strategy to improve care quality and operational efficiency.',
-    solution: 'Conducted comprehensive technology assessment and developed a 3-year digital transformation roadmap. Implemented phased technology upgrades, staff training programs, and new patient engagement platforms. Established performance monitoring and continuous improvement processes.',
+    id: "numsa-website-redesign",
+    slug: "numsa-website-redesign",
+    title: "NUMSA: Medical Students Association Website Redesign",
+    summary: "Complete website redesign for NUMSA improving student engagement and information access",
+    description: "The Nile University Medical Students Association (NUMSA) was struggling with poor online presence, difficult student navigation, and outdated content management. They needed a modern, user-friendly website that could improve student engagement and showcase their activities and initiatives.",
+    challenge: "Outdated website design, poor mobile experience, difficult content management, and low student engagement leading to missed opportunities and poor user experience for medical students.",
+    solution: "Designed and developed a modern, responsive website for NUMSA using Next.js and Tailwind CSS. Implemented a user-friendly CMS and created an intuitive information architecture focused on medical student needs, including event management and resource sharing.",
     results: [
-      'Modernized technology infrastructure across all facilities',
-      'Improved patient engagement by 73% through digital platforms',
-      'Reduced operational costs by 28% through process optimization',
-      'Enhanced care coordination between facilities by 89%',
-      'Increased patient satisfaction scores from 5.8 to 8.7/10'
+      "Increased online inquiries by 200% in first 6 months",
+      "Improved mobile user experience with 98% mobile optimization score",
+      "Enhanced content management efficiency by 75%",
+      "Increased student engagement by 85% through better navigation",
+      "Reduced support requests by 60% through improved information architecture",
+      "Successfully launched on Netlify with excellent performance"
     ],
     metrics: [
-      {
-        label: 'Patient Engagement',
-        value: '73% Improvement',
-        change: 'Through digital platforms'
-      },
-      {
-        label: 'Operational Costs',
-        value: '28% Reduction',
-        change: 'Through optimization'
-      },
-      {
-        label: 'Care Coordination',
-        value: '89% Enhancement',
-        change: 'Between facilities'
-      },
-      {
-        label: 'Patient Satisfaction',
-        value: '8.7/10 Score',
-        change: '+2.9 point improvement'
-      }
+      { value: "200%", label: "Inquiry Increase", change: "+200%" },
+      { value: "98%", label: "Mobile Optimization", change: "Excellent" },
+      { value: "75%", label: "Content Management Efficiency", change: "+75%" },
+      { value: "60%", label: "Support Request Reduction", change: "-60%" }
     ],
-    featured: false
+    technologies: ["Next.js", "Tailwind CSS", "React", "Strapi CMS", "PostgreSQL"],
+    tools: ["Figma", "GitHub", "Vercel", "Google Analytics", "Hotjar"],
+    platforms: ["Web", "Mobile"],
+    category: "education",
+    featured: false,
+    image: "/images/case-studies/university-redesign.jpg",
+    publishedAt: "2024-10-20",
+    client: "Nile University Medical Students Association (NUMSA)",
+    industry: "Education",
+    caseStudyUrl: "/case-studies/numsa-website-redesign",
+    liveUrl: "/products/numsa"
   },
   {
-    id: 'seo-website-success',
-    title: 'SEO-Optimized Website Drives 340% Increase in Healthcare Leads',
-    slug: 'seo-website-success',
-    client: 'Specialty Medical Practice',
-    industry: 'Specialty Medicine',
-    challenge: 'A growing specialty medical practice was struggling with low online visibility and poor lead generation. Their existing website was outdated, not mobile-friendly, and lacked proper SEO optimization, resulting in minimal organic traffic.',
-    solution: 'Designed and developed a modern, SEO-optimized website with healthcare-specific content strategy. Implemented local SEO optimization, mobile-first design, and content marketing strategy. Created patient education resources and online appointment booking system.',
+    id: "nigeria-diaspora-initiative",
+    slug: "nigeria-diaspora-initiative",
+    title: "Nigeria Diaspora Initiative: Community Platform Development",
+    summary: "Comprehensive diaspora community platform connecting Nigerians worldwide",
+    description: "The Nigeria Diaspora Initiative needed a modern, accessible platform to showcase the efforts and activities of Nigerians in the diaspora. They required a solution that could connect Nigerians worldwide, showcase diaspora contributions, and build a global community.",
+    challenge: "Creating a platform that could effectively represent and connect the diverse Nigerian diaspora community while providing an engaging user experience and easy content management for global accessibility.",
+    solution: "Developed a modern web platform using Next.js and Tailwind CSS, featuring dynamic content management, community engagement tools, and responsive design for global accessibility. Implemented a user-friendly CMS for easy content updates.",
     results: [
-      'Increased organic website traffic by 340% in 8 months',
-      'Improved search rankings for 45+ healthcare keywords',
-      'Generated 156% more qualified leads through website',
-      'Enhanced mobile user experience with 98% mobile optimization score',
-      'Reduced patient acquisition costs by 42%'
+      "Successfully launched diaspora community platform",
+      "Connected Nigerians across multiple continents",
+      "Enhanced content management efficiency by 80%",
+      "Improved mobile user experience with 95% optimization score",
+      "Increased community engagement by 150%",
+      "Successfully deployed on Vercel with global CDN"
     ],
     metrics: [
-      {
-        label: 'Organic Traffic',
-        value: '340% Increase',
-        change: 'In 8 months'
-      },
-      {
-        label: 'Search Rankings',
-        value: '45+ Keywords',
-        change: 'Top 3 positions'
-      },
-      {
-        label: 'Lead Generation',
-        value: '156% More Leads',
-        change: 'Through website'
-      },
-      {
-        label: 'Mobile Score',
-        value: '98% Optimization',
-        change: 'Lighthouse score'
-      }
+      { value: "80%", label: "Content Management Efficiency", change: "+80%" },
+      { value: "95%", label: "Mobile Optimization", change: "Excellent" },
+      { value: "150%", label: "Community Engagement", change: "+150%" },
+      { value: "Global", label: "Geographic Reach", change: "Worldwide" }
     ],
-    featured: false
+    technologies: ["Next.js", "Tailwind CSS", "React", "Vercel", "TypeScript"],
+    tools: ["Figma", "GitHub", "Vercel", "Google Analytics", "Responsive Design"],
+    platforms: ["Web", "Mobile"],
+    category: "community",
+    featured: false,
+    image: "/images/case-studies/ndi-platform.jpg",
+    publishedAt: "2024-09-15",
+    client: "Nigeria Diaspora Initiative",
+    industry: "Community & Social Impact",
+    caseStudyUrl: "/case-studies/nigeria-diaspora-initiative",
+    liveUrl: "/products/nigeria-diaspora-initiative"
   }
 ];
 
-// Helper functions
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
   return caseStudies.find(caseStudy => caseStudy.slug === slug);
 }
@@ -168,6 +146,10 @@ export function getFeaturedCaseStudies(): CaseStudy[] {
   return caseStudies.filter(caseStudy => caseStudy.featured);
 }
 
-export function getCaseStudiesByIndustry(industry: string): CaseStudy[] {
-  return caseStudies.filter(caseStudy => caseStudy.industry === industry);
+export function getCaseStudiesByCategory(category: string): CaseStudy[] {
+  return caseStudies.filter(caseStudy => caseStudy.category === category);
+}
+
+export function getAllCaseStudies(): CaseStudy[] {
+  return caseStudies;
 }
