@@ -269,15 +269,31 @@ export default function Home() {
             Let&apos;s build innovative solutions together. Our team is ready to help you scale through 
             digital transformation, technical support, and strategic guidance.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link href="/contact">
-              <Button size="lg" variant="secondary" className="text-lg px-8 py-6">
-                Start Your Project
+            <Button 
+                size="lg" 
+                variant="outline" 
+                className="relative overflow-hidden bg-transparent hover:bg-white/10 text-white font-semibold text-lg px-10 py-6 rounded-xl border-2 border-white/50 hover:border-white/80 transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                 
+                  Start Your Project
+                  
+                </span>
               </Button>
             </Link>
             <Link href="/case-studies">
-              <Button size="lg"  variant="secondary" className="text-lg px-8 py-6">
-                View Case Studies
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="relative overflow-hidden bg-transparent hover:bg-white/10 text-white font-semibold text-lg px-10 py-6 rounded-xl border-2 border-white/50 hover:border-white/80 transition-all duration-300 transform hover:-translate-y-1 backdrop-blur-sm"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                 
+                  View Case Studies
+                  
+                </span>
               </Button>
             </Link>
           </div>
