@@ -225,9 +225,19 @@ export default function Home() {
                   <div className="h-16 w-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                     <Globe className="h-8 w-8 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">
-                    {product.name}
-                  </h3>
+                  
+                  {/* Product Header with Coming Soon Badge */}
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">
+                      {product.name}
+                    </h3>
+                    {product.comingSoon && (
+                      <span className="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full border border-yellow-200">
+                        Coming Soon
+                      </span>
+                    )}
+                  </div>
+                  
                   <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
                     {product.description}
                   </p>
@@ -246,7 +256,7 @@ export default function Home() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Link href={`/products/${product.slug}`}>
                       <Button className="w-full sm:w-auto">
-                        View Demo
+                        {product.comingSoon ? "Learn More" : "View Demo"}
                       </Button>
                     </Link>
                     <Link href="/contact">

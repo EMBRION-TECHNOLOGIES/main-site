@@ -25,6 +25,7 @@ export interface Product {
   demoUrl?: string;
   pricing?: 'Free' | 'Paid' | 'Enterprise' | 'Contact Sales';
   featured?: boolean;
+  comingSoon?: boolean;
 }
 
 export interface CaseStudy {

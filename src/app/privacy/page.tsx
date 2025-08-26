@@ -166,9 +166,9 @@ export default function PrivacyPolicy() {
             <p className="text-muted-foreground">
               <strong>Email:</strong> embriontechnologies@gmail.com<br />
               <strong>Address:</strong> EE IKWUE STREET, NAF VALLEY ESTATE, ASOKORO, Abuja, Nigeria<br />
-              <strong>Phone:</strong> +234 815 257 2020<br />
-              <strong>WhatsApp:</strong> +234 901 366 1942<br />
-              <strong>Alternative:</strong> +243 805 156 6743
+              <strong>Phone 1:</strong> +234 815 257 2020<br />
+              <strong>Phone 2:</strong> +243 805 156 6743<br />
+              <strong>WhatsApp:</strong> +234 901 366 1942
             </p>
           </div>
         </section>

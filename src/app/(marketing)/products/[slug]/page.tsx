@@ -100,6 +100,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   Featured Product
                 </Badge>
               )}
+              {product.comingSoon && (
+                <Badge variant="secondary" className="bg-yellow-100 text-yellow-800 border-yellow-200">
+                  Coming Soon
+                </Badge>
+              )}
               <Badge variant="outline">{product.pricing}</Badge>
             </div>
             <h1 className="text-4xl font-semibold mb-4">{product.name}</h1>
@@ -200,7 +205,21 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </Card>
 
           {/* Demo Card */}
-          {product.demoUrl && (
+          {product.comingSoon ? (
+            <Card className="border-yellow-200 bg-yellow-50/50">
+              <CardHeader>
+                <CardTitle className="text-yellow-800">Coming Soon</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-yellow-700 mb-4">
+                  This product is currently in development and will be available soon. Stay tuned for updates!
+                </p>
+                <Button variant="outline" className="w-full border-yellow-300 text-yellow-700 hover:bg-yellow-100" disabled>
+                  Demo Coming Soon
+                </Button>
+              </CardContent>
+            </Card>
+          ) : product.demoUrl ? (
             <Card className="border-green-200 bg-green-50/50">
               <CardHeader>
                 <CardTitle className="text-green-800">Live Demo Available</CardTitle>
@@ -217,7 +236,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </Button>
               </CardContent>
             </Card>
-          )}
+          ) : null}
 
           {/* CTA Card */}
           <Card>

@@ -123,16 +123,16 @@ export default function ContactForm() {
               <h3 className="font-semibold mb-1">Phone</h3>
               <p className="text-muted-foreground">
                 <span className="block">
-                  <span className="font-semibold">Call:</span> +234 815 257 2020
+                  <span className="font-semibold">Phone 1:</span> +234 815 257 2020
+                </span>
+                <span className="block">
+                  <span className="font-semibold">Phone 2:</span> +243 805 156 6743
                 </span>
                 <span className="block">
                   <span className="font-semibold">WhatsApp:</span> +234 901 366 1942
                 </span>
-                <span className="block">
-                  <span className="font-semibold">Alt:</span> +243 805 156 6743
-                </span>
               </p>
-              <p className="text-sm text-muted-foreground">Mon-Fri, 9AM-6PM EST</p>
+              <p className="text-sm text-muted-foreground">Mon-Fri, 9AM-6PM (GMT+1)</p>
             </div>
           </div>
 

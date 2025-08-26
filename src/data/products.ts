@@ -29,9 +29,10 @@ export const products: Product[] = [
       "/products/medsync/patient-view.png",
       "/products/medsync/medication-list.png"
     ],
-    demoUrl: "https://demo.medsync.embriontechnologies.com",
+    demoUrl: undefined,
     pricing: "Contact Sales",
-    featured: true
+    featured: true,
+    comingSoon: true
   },
   {
     id: "stewardai",
@@ -61,9 +62,10 @@ export const products: Product[] = [
       "/products/stewardai/patient-view.png",
       "/products/stewardai/medication-list.png"
     ],
-    demoUrl: "https://demo.stewardai.embriontechnologies.com",
+    demoUrl: undefined,
     pricing: "Enterprise",
-    featured: true
+    featured: true,
+    comingSoon: true
   },
   {
     id: "interpocket",
