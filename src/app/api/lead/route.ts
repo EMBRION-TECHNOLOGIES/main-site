@@ -22,8 +22,8 @@ export async function POST(req: Request) {
     // TODO: Implement actual email sending
     // const resend = new Resend(process.env.RESEND_API_KEY);
     // await resend.emails.send({
-    //   from: 'EMBRION <noreply@embrion.ai>',
-    //   to: ['hello@embrion.ai'],
+    //   from: 'EMBRION <noreply@embriontechnologies.com>',
+    //   to: ['embriontechnologies@gmail.com'],
     //   subject: 'New lead',
     //   text: JSON.stringify(validatedData, null, 2),
     // });

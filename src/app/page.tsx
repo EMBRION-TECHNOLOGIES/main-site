@@ -46,8 +46,8 @@ export default function Home() {
     "name": "Embrion Technologies",
     "alternateName": "Embrion",
     "description": "Nigerian technology company dedicated to creating high-quality digital products, platforms, and tools that enhance productivity, efficiency, and user engagement.",
-    "url": "https://embriontech.com",
-    "logo": "https://embriontech.com/logo.png",
+    "url": "https://embriontechnologies.com",
+    "logo": "https://embriontechnologies.com/logo.png",
     "sameAs": [
       "https://twitter.com/embriontech",
       "https://linkedin.com/company/embriontech"
@@ -55,10 +55,13 @@ export default function Home() {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "email": "support@embriontech.com"
+      "email": "embriontechnologies@gmail.com",
+      "telephone": "+234 815 257 2020"
     },
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "EE IKWUE STREET, NAF VALLEY ESTATE, ASOKORO",
+      "addressLocality": "Abuja",
       "addressCountry": "NG"
     },
     "foundingDate": "2024",

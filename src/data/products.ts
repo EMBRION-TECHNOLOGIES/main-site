@@ -29,7 +29,7 @@ export const products: Product[] = [
       "/products/medsync/patient-view.png",
       "/products/medsync/medication-list.png"
     ],
-    demoUrl: "https://demo.medsync.embrion.ai",
+    demoUrl: "https://demo.medsync.embriontechnologies.com",
     pricing: "Contact Sales",
     featured: true
   },
@@ -61,7 +61,7 @@ export const products: Product[] = [
       "/products/stewardai/patient-view.png",
       "/products/stewardai/medication-list.png"
     ],
-    demoUrl: "https://demo.stewardai.embrion.ai",
+    demoUrl: "https://demo.stewardai.embriontechnologies.com",
     pricing: "Enterprise",
     featured: true
   },

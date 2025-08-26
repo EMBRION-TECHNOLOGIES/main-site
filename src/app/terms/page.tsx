@@ -149,9 +149,11 @@ export default function TermsOfService() {
           </p>
           <div className="bg-muted/50 p-4 rounded-lg">
             <p className="text-muted-foreground">
-              <strong>Email:</strong> legal@embrion.com<br />
-              <strong>Address:</strong> EMBRION, [Your Address]<br />
-              <strong>Phone:</strong> [Your Phone Number]
+              <strong>Email:</strong> embriontechnologies@gmail.com<br />
+              <strong>Address:</strong> EE IKWUE STREET, NAF VALLEY ESTATE, ASOKORO, Abuja, Nigeria<br />
+              <strong>Phone:</strong> +234 815 257 2020<br />
+              <strong>WhatsApp:</strong> +234 901 366 1942<br />
+              <strong>Alternative:</strong> +243 805 156 6743
             </p>
           </div>
         </section>
