@@ -89,13 +89,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#ffffff" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
+        <link rel="icon" href="/favicons/android-chrome-512x512.png" type="image/png" sizes="512x512" />
+        <link rel="icon" href="/favicons/android-chrome-192x192.png" type="image/png" sizes="192x192" />
+        <link rel="icon" href="/favicons/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicons/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="shortcut icon" href="/favicons/favicon-32x32.png" />
+        <link rel="icon" href="/favicons/favicon-32x32.png" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <meta name="theme-color" content="#031273" />
+        <meta name="msapplication-TileColor" content="#031273" />
+        <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+        <meta name="msapplication-TileImage" content="/favicons/android-chrome-192x192.png" />
+        <meta name="msapplication-square150x150logo" content="/favicons/android-chrome-192x192.png" />
+        <meta name="msapplication-wide310x150logo" content="/favicons/android-chrome-192x192.png" />
       </head>
       <body
         className={`${josefinSans.variable} antialiased min-h-dvh`}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/ui/logo";
 
 export default function Footer() {
   return (
@@ -7,11 +8,14 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-4">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">E</span>
-              </div>
-              <span className="font-bold text-xl">Embrion Technologies</span>
+            <div className="flex items-center mb-4">
+              <Logo 
+                variant="full" 
+                width={160} 
+                height={35} 
+                className="mr-2"
+              />
+              <span className="text-sm text-muted-foreground">Technologies</span>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md">
               Nigerian technology company dedicated to creating high-quality digital products, platforms, and tools 
