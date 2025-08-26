@@ -1,11 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface SafeImageProps {
   src?: string;
   alt: string;
   className?: string;
+  width?: number;
+  height?: number;
+  priority?: boolean;
   [key: string]: unknown;
 }
 
@@ -13,6 +17,9 @@ export function SafeImage({
   src, 
   alt, 
   className, 
+  width = 400,
+  height = 300,
+  priority = false,
   ...props 
 }: SafeImageProps) {
   const [imageExists, setImageExists] = useState(false);
@@ -26,7 +33,7 @@ export function SafeImage({
     }
 
     // Check if image exists and isn't empty
-    const img = new Image();
+    const img = new window.Image();
     img.onload = () => {
       // Check if the image has actual content (not just a placeholder)
       const canvas = document.createElement('canvas');
@@ -67,11 +74,19 @@ export function SafeImage({
     return null;
   }
 
+  // Type guard to ensure src is defined
+  if (!src) {
+    return null;
+  }
+
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       className={className}
+      priority={priority}
       {...props}
     />
   );

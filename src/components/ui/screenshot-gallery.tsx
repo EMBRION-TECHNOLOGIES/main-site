@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
 
 
 interface ScreenshotGalleryProps {
@@ -71,12 +72,18 @@ function ScreenshotImage({
   alt, 
   className, 
   onVisibilityChange,
+  width = 400,
+  height = 300,
+  priority = false,
   ...props 
 }: {
   src?: string;
   alt: string;
   className?: string;
   onVisibilityChange: (isVisible: boolean) => void;
+  width?: number;
+  height?: number;
+  priority?: boolean;
   [key: string]: unknown;
 }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -88,7 +95,7 @@ function ScreenshotImage({
     }
 
     // Check if image exists and isn't empty
-    const img = new Image();
+    const img = new window.Image();
     img.onload = () => {
       // Check if the image has actual content (not just a placeholder)
       const canvas = document.createElement('canvas');
@@ -126,15 +133,18 @@ function ScreenshotImage({
   }, [src, onVisibilityChange]);
 
   // Don't render anything while loading or if image doesn't exist
-  if (!isVisible) {
+  if (!isVisible || !src) {
     return null;
   }
 
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       className={className}
+      priority={priority}
       {...props}
     />
   );

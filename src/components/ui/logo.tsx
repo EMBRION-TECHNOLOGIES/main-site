@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { useMemo, useState, useEffect } from 'react';
-import { useMediaQuery } from '@/hooks/use-media-query';
 import { useTheme } from 'next-themes';
 
 export type LogoVariant = 'full' | 'letter' | 'icon' | 'text';
@@ -22,8 +21,6 @@ export function Logo({
   height = 60,
   priority = false 
 }: LogoProps) {
-  const isMobile = useMediaQuery('(max-width: 768px)');
-  const isSmallMobile = useMediaQuery('(max-width: 480px)');
   const { theme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   
@@ -33,8 +30,8 @@ export function Logo({
   }, []);
   
   // Use resolvedTheme to handle SSR and system preference
-  // Default to 'dark' to match the defaultTheme in layout
-  const currentTheme = mounted ? (resolvedTheme || theme || 'dark') : 'dark';
+  // Default to 'light' to match the defaultTheme in layout
+  const currentTheme = mounted ? (resolvedTheme || theme || 'light') : 'light';
 
   // Always use full variant for responsive sizing, unless explicitly specified otherwise
   const responsiveVariant = useMemo(() => {
@@ -115,7 +112,7 @@ export function Logo({
   // Don't render anything until mounted to prevent hydration mismatch
   if (!mounted) {
     return (
-      <div className={`logo-container ${className}`} data-theme="dark">
+      <div className={`logo-container ${className}`} data-theme="light">
         <div 
           style={{ 
             width: dimensions.width, 

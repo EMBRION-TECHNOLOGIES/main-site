@@ -52,7 +52,7 @@ export default function Investors() {
               <div className="p-4 border rounded-lg">
                 <h3 className="font-semibold mb-2">Nigerian Digital Market Opportunity</h3>
                 <p className="text-sm text-muted-foreground">
-                  Nigeria's digital economy is rapidly expanding with growing demand for technology solutions across all sectors.
+                  Nigeria&apos;s digital economy is rapidly expanding with growing demand for technology solutions across all sectors.
                 </p>
               </div>
               
