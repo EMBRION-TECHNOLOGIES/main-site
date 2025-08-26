@@ -93,7 +93,7 @@ export default function AboutPage() {
             organizations and businesses seeking innovative digital solutions. Our team combines deep 
             technical expertise with a deep understanding of local market needs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/contact">
               <Button size="lg" className="group">
                 Get in Touch

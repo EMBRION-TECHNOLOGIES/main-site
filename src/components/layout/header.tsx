@@ -40,14 +40,14 @@ export default function Header() {
                 href="/" 
                 className={`text-sm font-medium transition-colors duration-200 relative group ${
                   isActive('/') 
-                    ? 'text-[#031273]' 
+                    ? 'text-primary' 
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 Home
                 <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-200 ${
                   isActive('/')
-                    ? 'w-full bg-[#031273]'
+                    ? 'w-full bg-primary'
                     : 'w-0 bg-primary group-hover:w-full'
                 }`}></span>
               </Link>
@@ -55,14 +55,14 @@ export default function Header() {
                 href="/about" 
                 className={`text-sm font-medium transition-colors duration-200 relative group ${
                   isActive('/about') 
-                    ? 'text-[#031273]' 
+                    ? 'text-primary' 
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 About
                 <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-200 ${
                   isActive('/about') 
-                    ? 'w-full bg-[#031273]' 
+                    ? 'w-full bg-primary' 
                     : 'w-0 bg-primary group-hover:w-full'
                 }`}></span>
               </Link>
@@ -70,14 +70,14 @@ export default function Header() {
                 href="/services" 
                 className={`text-sm font-medium transition-colors duration-200 relative group ${
                   isActive('/services') 
-                    ? 'text-[#031273]' 
+                    ? 'text-primary' 
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 Services
                 <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-200 ${
                   isActive('/services') 
-                    ? 'w-full bg-[#031273]' 
+                    ? 'w-full bg-primary' 
                     : 'w-0 bg-primary group-hover:w-full'
                 }`}></span>
               </Link>
@@ -85,14 +85,14 @@ export default function Header() {
                 href="/products" 
                 className={`text-sm font-medium transition-colors duration-200 relative group ${
                   isActive('/products') 
-                    ? 'text-[#031273]' 
+                    ? 'text-primary' 
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 Products
                 <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-200 ${
                   isActive('/products') 
-                    ? 'w-full bg-[#031273]' 
+                    ? 'w-full bg-primary' 
                     : 'w-0 bg-primary group-hover:w-full'
                 }`}></span>
               </Link>
@@ -100,14 +100,14 @@ export default function Header() {
                 href="/case-studies" 
                 className={`text-sm font-medium transition-colors duration-200 relative group ${
                   isActive('/case-studies') 
-                    ? 'text-[#031273]' 
+                    ? 'text-primary' 
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 Case Studies
                 <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-200 ${
                   isActive('/case-studies') 
-                    ? 'w-full bg-[#031273]' 
+                    ? 'w-full bg-primary' 
                     : 'w-0 bg-primary group-hover:w-full'
                 }`}></span>
               </Link>
@@ -115,14 +115,14 @@ export default function Header() {
                 href="/investors" 
                 className={`text-sm font-medium transition-colors duration-200 relative group ${
                   isActive('/investors') 
-                    ? 'text-[#031273]' 
+                    ? 'text-primary' 
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
                 Investors
                 <span className={`absolute -bottom-1 left-0 h-0.5 transition-all duration-200 ${
                   isActive('/investors') 
-                    ? 'w-full bg-[#031273]' 
+                    ? 'w-full bg-primary' 
                     : 'w-0 bg-primary group-hover:w-full'
                 }`}></span>
               </Link>
@@ -156,7 +156,7 @@ export default function Header() {
               href="/" 
               className={`text-xs font-medium transition-colors text-center px-2 py-1 rounded hover:bg-muted/50 ${
                 isActive('/') 
-                  ? 'text-[#031273] bg-[#031273]/10' 
+                  ? 'text-primary bg-primary/10' 
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -166,7 +166,7 @@ export default function Header() {
               href="/about" 
               className={`text-xs font-medium transition-colors text-center px-2 py-1 rounded hover:bg-muted/50 ${
                 isActive('/about') 
-                  ? 'text-[#031273] bg-[#031273]/10' 
+                  ? 'text-primary bg-primary/10' 
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -176,7 +176,7 @@ export default function Header() {
               href="/services" 
               className={`text-xs font-medium transition-colors text-center px-2 py-1 rounded hover:bg-muted/50 ${
                 isActive('/services') 
-                  ? 'text-[#031273] bg-[#031273]/10' 
+                  ? 'text-primary bg-primary/10' 
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -186,7 +186,7 @@ export default function Header() {
               href="/products" 
               className={`text-xs font-medium transition-colors text-center px-2 py-1 rounded hover:bg-muted/50 ${
                 isActive('/products') 
-                  ? 'text-[#031273] bg-[#031273]/10' 
+                  ? 'text-primary bg-primary/10' 
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -196,9 +196,9 @@ export default function Header() {
               href="/case-studies" 
               className={`text-xs font-medium transition-colors text-center px-1 py-1 rounded hover:bg-muted/50 ${
                 isActive('/case-studies') 
-                  ? 'text-[#031273] bg-[#031273]/10' 
+                  ? 'text-primary bg-primary/10' 
                   : 'text-muted-foreground hover:text-foreground'
-              }`}
+            }`}
             >
               Case Studies
             </Link>
@@ -206,7 +206,7 @@ export default function Header() {
               href="/investors" 
               className={`text-xs font-medium transition-colors text-center px-2 py-1 rounded hover:bg-muted/50 ${
                 isActive('/investors') 
-                  ? 'text-[#031273] bg-[#031273]/10' 
+                  ? 'text-primary bg-primary/10' 
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >

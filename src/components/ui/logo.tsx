@@ -1,8 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { useTheme } from 'next-themes';
 
 export type LogoVariant = 'full' | 'letter' | 'icon' | 'text';
 
@@ -23,26 +24,56 @@ export function Logo({
 }: LogoProps) {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const isSmallMobile = useMediaQuery('(max-width: 480px)');
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  
+  // Prevent hydration mismatch by only showing theme after mount
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  
+  // Use resolvedTheme to handle SSR and system preference
+  // Default to 'dark' to match the defaultTheme in layout
+  const currentTheme = mounted ? (resolvedTheme || theme || 'dark') : 'dark';
 
-  // Responsive variant selection
+  // Always use full variant for responsive sizing, unless explicitly specified otherwise
   const responsiveVariant = useMemo(() => {
     if (variant !== 'full') return variant; // Use explicit variant if specified
     
-    if (isSmallMobile) return 'icon';
-    if (isMobile) return 'letter';
+    // Always return 'full' for responsive sizing, but we'll adjust dimensions instead
     return 'full';
-  }, [variant, isMobile, isSmallMobile]);
+  }, [variant]);
 
   const getLogoSrc = () => {
+    // Use theme-specific SVG files for better visibility
+    const isDark = currentTheme === 'dark';
+    const themeSuffix = isDark ? '-dark' : '';
+    
+    switch (responsiveVariant) {
+      case 'full':
+        return `/logos/logo-full${themeSuffix}.svg`;
+      case 'letter':
+        return `/logos/logo-letter${themeSuffix}.svg`;
+      case 'icon':
+        return `/logos/logo-letter${themeSuffix}.svg`; // Use letter for icon as it's just the hexagon
+      case 'text':
+        return `/logos/logo-full${themeSuffix}.svg`; // Fallback to full for text variant
+      default:
+        return `/logos/logo-full${themeSuffix}.svg`;
+    }
+  };
+
+  const getFallbackLogoSrc = () => {
+    // Fallback to original SVG files if theme-specific ones don't exist
     switch (responsiveVariant) {
       case 'full':
         return '/logos/logo-full.svg';
       case 'letter':
         return '/logos/logo-letter.svg';
       case 'icon':
-        return '/logos/logo-letter.svg'; // Use letter for icon as it's just the hexagon
+        return '/logos/logo-letter.svg';
       case 'text':
-        return '/logos/logo-full.svg'; // Fallback to full for text variant
+        return '/logos/logo-full.svg';
       default:
         return '/logos/logo-full.svg';
     }
@@ -66,13 +97,14 @@ export function Logo({
   const getDimensions = () => {
     switch (responsiveVariant) {
       case 'full':
-        return { width: Math.max(width, 200), height: Math.max(height, 60) };
+        // Use the exact dimensions provided, don't force minimum sizes
+        return { width, height };
       case 'letter':
-        return { width: Math.max(width * 0.6, 120), height: Math.max(height * 0.6, 36) };
+        return { width: width * 0.6, height: height * 0.6 };
       case 'icon':
-        return { width: Math.max(width * 0.4, 80), height: Math.max(height * 0.4, 24) };
+        return { width: width * 0.4, height: height * 0.4 };
       case 'text':
-        return { width: Math.max(width, 200), height: Math.max(height, 60) };
+        return { width, height };
       default:
         return { width, height };
     }
@@ -80,15 +112,40 @@ export function Logo({
 
   const dimensions = getDimensions();
 
+  // Don't render anything until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <div className={`logo-container ${className}`} data-theme="dark">
+        <div 
+          style={{ 
+            width: dimensions.width, 
+            height: dimensions.height,
+            backgroundColor: 'transparent'
+          }} 
+        />
+      </div>
+    );
+  }
+
   return (
-    <Image
-      src={getLogoSrc()}
-      alt={getLogoAlt()}
-      width={dimensions.width}
-      height={dimensions.height}
-      className={`object-contain ${className}`}
-      priority={priority}
-    />
+    <div className={`logo-container ${className}`} data-theme={currentTheme}>
+      <Image
+        key={`${currentTheme}-${responsiveVariant}`}
+        src={getLogoSrc()}
+        alt={getLogoAlt()}
+        width={dimensions.width}
+        height={dimensions.height}
+        className="object-contain logo-image"
+        priority={priority}
+        onError={(e) => {
+          // Fallback to original SVG if theme-specific one fails to load
+          const target = e.target as HTMLImageElement;
+          if (target.src !== getFallbackLogoSrc()) {
+            target.src = getFallbackLogoSrc();
+          }
+        }}
+      />
+    </div>
   );
 }
 

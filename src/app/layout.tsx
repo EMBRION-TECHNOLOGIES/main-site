@@ -93,23 +93,20 @@ export default function RootLayout({
         <link rel="icon" href="/favicons/android-chrome-192x192.png" type="image/png" sizes="192x192" />
         <link rel="icon" href="/favicons/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="icon" href="/favicons/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="shortcut icon" href="/favicons/favicon-32x32.png" />
-        <link rel="icon" href="/favicons/favicon-32x32.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicons/favicon.ico" />
+        <link rel="icon" href="/favicons/favicon.ico" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
         <link rel="manifest" href="/favicons/site.webmanifest" />
         <meta name="theme-color" content="#031273" />
         <meta name="msapplication-TileColor" content="#031273" />
-        <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
         <meta name="msapplication-TileImage" content="/favicons/android-chrome-192x192.png" />
-        <meta name="msapplication-square150x150logo" content="/favicons/android-chrome-192x192.png" />
-        <meta name="msapplication-wide310x150logo" content="/favicons/android-chrome-192x192.png" />
       </head>
       <body
         className={`${josefinSans.variable} antialiased min-h-dvh`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

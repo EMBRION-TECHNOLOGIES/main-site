@@ -4,6 +4,7 @@
 
 ### Core Colors
 - **EMBRION Blue**: `#031273` - Primary brand color (dark blue hexagon)
+- **EMBRION Blue Light**: `#4A90E2` - Light variant for dark mode
 - **EMBRION Black**: `#000000` - Secondary brand color (text)
 - **EMBRION White**: `#ffffff` - Accent color (E letter inside hexagon)
 
@@ -11,6 +12,7 @@
 ```css
 :root {
   --embrion-blue: #031273;
+  --embrion-blue-light: #4A90E2;
   --embrion-black: #000000;
   --embrion-white: #ffffff;
 }
@@ -47,23 +49,26 @@
 
 ### Text Colors
 ```css
-.text-embrion-blue    /* #031273 */
-.text-embrion-black   /* #000000 */
-.text-embrion-white   /* #ffffff */
+.text-embrion-blue       /* #031273 */
+.text-embrion-blue-light /* #4A90E2 */
+.text-embrion-black      /* #000000 */
+.text-embrion-white      /* #ffffff */
 ```
 
 ### Background Colors
 ```css
-.bg-embrion-blue      /* #031273 */
-.bg-embrion-black     /* #000000 */
-.bg-embrion-white     /* #ffffff */
+.bg-embrion-blue       /* #031273 */
+.bg-embrion-blue-light /* #4A90E2 */
+.bg-embrion-black      /* #000000 */
+.bg-embrion-white      /* #ffffff */
 ```
 
 ### Border Colors
 ```css
-.border-embrion-blue  /* #031273 */
-.border-embrion-black /* #000000 */
-.border-embrion-white /* #ffffff */
+.border-embrion-blue       /* #031273 */
+.border-embrion-blue-light /* #4A90E2 */
+.border-embrion-black      /* #000000 */
+.border-embrion-white      /* #ffffff */
 ```
 
 ### Background Colors with Opacity
@@ -74,26 +79,34 @@
 
 ### Ring Colors (Focus States)
 ```css
-.ring-embrion-blue    /* #031273 */
-.ring-embrion-black   /* #000000 */
-.ring-embrion-white   /* #ffffff */
+.ring-embrion-blue       /* #031273 */
+.ring-embrion-blue-light /* #4A90E2 */
+.ring-embrion-black      /* #000000 */
+.ring-embrion-white      /* #ffffff */
 ```
 
 ## Theme Integration
 
 ### Light Theme
-- Primary: EMBRION Blue
-- Secondary: EMBRION Black
-- Accent: EMBRION White
+- Primary: EMBRION Blue (`#031273`)
+- Secondary: EMBRION Black (`#000000`)
+- Accent: EMBRION White (`#ffffff`)
 - Background: White
 - Text: Dark
 
 ### Dark Theme
-- Primary: EMBRION Blue
-- Secondary: EMBRION White
-- Accent: EMBRION White
+- Primary: EMBRION Blue Light (`#4A90E2`) - **Improved visibility**
+- Secondary: EMBRION White (`#ffffff`)
+- Accent: EMBRION White (`#ffffff`)
 - Background: Dark
 - Text: Light
+
+### Dark Mode Color Strategy
+The brand blue (`#031273`) is quite dark and can be hard to see against dark backgrounds. In dark mode, we automatically switch to the lighter blue variant (`#4A90E2`) to ensure:
+- **Better contrast ratios** for accessibility
+- **Improved visibility** on dark backgrounds
+- **Maintained brand consistency** across themes
+- **Enhanced user experience** in both light and dark modes
 
 ## Implementation Examples
 
@@ -189,7 +202,22 @@ This ensures consistent rendering across all browsers and build systems.
 
 - **CSS Variables**: `src/app/globals.css`
 - **Logo Components**: `src/components/ui/logo.tsx`
+- **Logo Assets**: `public/logos/` (includes theme-specific variants)
 - **Brand Documentation**: `BRAND_COLORS.md`
+
+## Logo Theming
+
+### Theme-Aware Logo System
+The logo component automatically adapts to light and dark themes:
+
+- **Light Mode**: Uses original SVG files with EMBRION Blue (#031273) background
+- **Dark Mode**: Uses theme-specific SVG files with white background and EMBRION Blue text
+- **Fallback**: Automatically falls back to original SVGs if theme-specific ones fail to load
+
+### Logo Files
+- `logo-full.svg` / `logo-full-dark.svg` - Full EMBRION logo
+- `logo-letter.svg` / `logo-letter-dark.svg` - Letter-only logo (hexagon + E)
+- **Dark Mode Variants**: Inverted colors for optimal visibility in dark themes
 
 ## Usage Guidelines
 

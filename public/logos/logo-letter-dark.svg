@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2160" zoomAndPan="magnify" viewBox="0 0 1620 1619.99993" height="2160" preserveAspectRatio="xMidYMid meet" version="1.0">
+  <defs>
+    <g/>
+    <clipPath id="b99469be78">
+      <path d="M 1 1.054688 L 587 1.054688 L 587 683 L 1 683 Z M 1 1.054688 " clip-rule="nonzero"/>
+    </clipPath>
+    <clipPath id="725e07c6c1">
+      <path d="M 294 1.054688 L 587 171.527344 L 587 512.472656 L 294 682.945312 L 1 512.472656 L 1 171.527344 Z M 294 1.054688 " clip-rule="nonzero"/>
+    </clipPath>
+    <clipPath id="b6ded61a05">
+      <path d="M 0 0.0546875 L 586 0.0546875 L 586 682 L 0 682 Z M 0 0.0546875 " clip-rule="nonzero"/>
+    </clipPath>
+    <clipPath id="8cd307bd05">
+      <path d="M 293 0.0546875 L 586 170.527344 L 586 511.472656 L 293 681.945312 L 0 511.472656 L 0 170.527344 Z M 293 0.0546875 " clip-rule="nonzero"/>
+    </clipPath>
+    <clipPath id="727833e8bb">
+      <rect x="0" width="586" y="0" height="682"/>
+    </clipPath>
+    <clipPath id="e19018b7fb">
+      <rect x="0" width="258" y="0" height="383"/>
+    </clipPath>
+    <clipPath id="27136bb2b1">
+      <rect x="0" width="588" y="0" height="684"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Hexagon with White background for dark mode -->
+  <g transform="matrix(1, 0, 0, 1, 516, 468)">
+    <g clip-path="url(#27136bb2b1)">
+      <g clip-path="url(#b99469be78)">
+        <g clip-path="url(#725e07c6c1)">
+          <g transform="matrix(1, 0, 0, 1, 1, 1)">
+            <g clip-path="url(#727833e8bb)">
+              <g clip-path="url(#b6ded61a05)">
+                <g clip-path="url(#8cd307bd05)">
+                  <!-- Dark mode: White hexagon background -->
+                  <path fill="#ffffff" d="M 0 0.0546875 L 586 0.0546875 L 586 682.195312 L 0 682.195312 Z M 0 0.0546875 " fill-opacity="1" fill-rule="nonzero"/>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      
+      <!-- "E" letter - EMBRION Blue in dark mode for better contrast -->
+      <g transform="matrix(1, 0, 0, 1, 162, 203)">
+        <g clip-path="url(#e19018b7fb)">
+          <g fill="#031273" fill-opacity="1">
+            <g transform="translate(0.409548, 285.568269)">
+              <g>
+                <path d="M 228.515625 -281.734375 L 228.515625 -228.140625 L 91.875 -228.140625 L 91.875 -168.046875 L 212.828125 -168.046875 L 212.828125 -114.453125 L 91.875 -114.453125 L 91.875 -53.59375 L 233.875 -53.59375 L 233.875 0 L 36.359375 0 L 36.359375 -281.734375 Z M 228.515625 -281.734375 "/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

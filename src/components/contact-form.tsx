@@ -110,7 +110,7 @@ export default function ContactForm() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Email</h3>
-              <p className="text-muted-foreground">hello@embrion.ai</p>
+              <p className="text-muted-foreground">embriontechnologies@gmail.com</p>
               <p className="text-sm text-muted-foreground">We&apos;ll respond within 24 hours</p>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function ContactForm() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Phone</h3>
-              <p className="text-muted-foreground">+1 (555) 123-4567</p>
+              <p className="text-muted-foreground">+234 901 366 1942</p>
               <p className="text-sm text-muted-foreground">Mon-Fri, 9AM-6PM EST</p>
             </div>
           </div>
@@ -132,8 +132,8 @@ export default function ContactForm() {
             </div>
             <div>
               <h3 className="font-semibold mb-1">Office</h3>
-              <p className="text-muted-foreground">123 Healthcare Ave</p>
-              <p className="text-sm text-muted-foreground">Digital Health District, NY 10001</p>
+              <p className="text-muted-foreground">EE IKWUE STREET, NAF VALLEY ESTATE, ASOKORO.</p>
+              <p className="text-sm text-muted-foreground">Abuja, Nigeria</p>
             </div>
           </div>
         </div>

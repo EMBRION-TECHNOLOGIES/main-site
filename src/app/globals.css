@@ -47,6 +47,7 @@
   
   /* EMBRION Brand Colors */
   --embrion-blue: #031273;
+  --embrion-blue-light: #4A90E2; /* Lighter variant for dark mode */
   --embrion-black: #000000;
   --embrion-white: #ffffff;
   
@@ -99,21 +100,21 @@
   --popover-foreground: oklch(0.985 0 0);
   
   /* Brand-Integrated Colors for Dark Theme */
-  --primary: var(--embrion-blue);
+  --primary: var(--embrion-blue-light);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: var(--embrion-white);
-  --secondary-foreground: var(--embrion-blue);
+  --secondary-foreground: var(--embrion-blue-light);
   --muted: oklch(0.274 0.006 286.033);
   --muted-foreground: oklch(0.705 0.015 286.067);
   --accent: var(--embrion-white);
-  --accent-foreground: var(--embrion-blue);
+  --accent-foreground: var(--embrion-blue-light);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: var(--embrion-blue);
+  --ring: var(--embrion-blue-light);
   
   /* Chart Colors using Brand Palette for Dark Theme */
-  --chart-1: var(--embrion-blue);
+  --chart-1: var(--embrion-blue-light);
   --chart-2: var(--embrion-white);
   --chart-3: var(--embrion-black);
   --chart-4: oklch(0.627 0.265 303.9);
@@ -122,12 +123,12 @@
   /* Sidebar Colors for Dark Theme */
   --sidebar: oklch(0.21 0.006 285.885);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: var(--embrion-blue);
+  --sidebar-primary: var(--embrion-blue-light);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: var(--embrion-white);
-  --sidebar-accent-foreground: var(--embrion-blue);
+  --sidebar-accent-foreground: var(--embrion-blue-light);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: var(--embrion-blue);
+  --sidebar-ring: var(--embrion-blue-light);
 }
 
 @layer base {
@@ -149,18 +150,22 @@
 @layer utilities {
   /* EMBRION Brand Color Utilities */
   .text-embrion-blue { color: var(--embrion-blue); }
+  .text-embrion-blue-light { color: var(--embrion-blue-light); }
   .text-embrion-black { color: var(--embrion-black); }
   .text-embrion-white { color: var(--embrion-white); }
   
   .bg-embrion-blue { background-color: var(--embrion-blue); }
+  .bg-embrion-blue-light { background-color: var(--embrion-blue-light); }
   .bg-embrion-black { background-color: var(--embrion-black); }
   .bg-embrion-white { background-color: var(--embrion-white); }
   
   .border-embrion-blue { border-color: var(--embrion-blue); }
+  .border-embrion-blue-light { border-color: var(--embrion-blue-light); }
   .border-embrion-black { border-color: var(--embrion-black); }
   .border-embrion-white { border-color: var(--embrion-white); }
   
   .ring-embrion-blue { --tw-ring-color: var(--embrion-blue); }
+  .ring-embrion-blue-light { --tw-ring-color: var(--embrion-blue-light); }
   .ring-embrion-black { --tw-ring-color: var(--embrion-black); }
   .ring-embrion-white { --tw-ring-color: var(--embrion-white); }
 }
@@ -406,3 +411,35 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: var(--muted-foreground);
 }
+
+/* Logo Theming for Dark Mode */
+.logo-container {
+  position: relative;
+}
+
+.logo-image {
+  transition: all 0.3s ease;
+}
+/* Light mode - use original colors */
+.logo-image {
+  filter: none;
+}
+
+/* Dark mode - use theme-specific SVG files */
+.dark .logo-image,
+.logo-container[data-theme="dark"] .logo-image {
+  filter: none; /* No filter needed since we have theme-specific SVGs */
+}
+
+/* Enhanced logo theming with better contrast */
+.logo-container[data-theme="dark"] .logo-image {
+  filter: none;
+}
+
+/* System preference dark mode */
+@media (prefers-color-scheme: dark) {
+  .logo-container:not([data-theme="light"]) .logo-image {
+    filter: none;
+  }
+}
+

@@ -4,7 +4,7 @@ import { Logo } from "@/components/ui/logo";
 export default function Footer() {
   return (
     <footer className="bg-muted/30 border-t">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="grid gap-8 md:grid-cols-4">
           {/* Company Info */}
           <div className="md:col-span-2">
@@ -13,13 +13,12 @@ export default function Footer() {
                 variant="full" 
                 width={160} 
                 height={35} 
-                className="mr-2"
+                className="mr-4"
               />
-              <span className="text-sm text-muted-foreground">Technologies</span>
             </div>
-            <p className="text-muted-foreground mb-4 max-w-md">
-              Nigerian technology company dedicated to creating high-quality digital products, platforms, and tools 
-              that enhance productivity, efficiency, and user engagement. Parent company of MedSync and StewardAI.
+            <p className="text-muted-foreground mb-6 max-w-md">
+              Technology company dedicated to creating high-quality digital products, platforms, and tools 
+              that enhance productivity, efficiency, and user engagement.
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -83,16 +82,16 @@ export default function Footer() {
                   Terms of Service
                 </Link>
               </li>
-                          <li>
-              <Link href="/cookies" className="text-muted-foreground hover:text-foreground transition-colors">
-                Cookie Policy
-              </Link>
-            </li>
-            <li>
-              <Link href="/cookie-settings" className="text-muted-foreground hover:text-foreground transition-colors">
-                Cookie Settings
-              </Link>
-            </li>
+              <li>
+                <Link href="/cookies" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Cookie Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookie-settings" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Cookie Settings
+                </Link>
+              </li>
               <li>
                 <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
                   Support
