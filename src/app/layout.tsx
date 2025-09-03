@@ -89,17 +89,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicons/android-chrome-512x512.png" type="image/png" sizes="512x512" />
-        <link rel="icon" href="/favicons/android-chrome-192x192.png" type="image/png" sizes="192x192" />
-        <link rel="icon" href="/favicons/favicon-32x32.png" type="image/png" sizes="32x32" />
-        <link rel="icon" href="/favicons/favicon-16x16.png" type="image/png" sizes="16x16" />
-        <link rel="shortcut icon" href="/favicons/favicon.ico" />
-        <link rel="icon" href="/favicons/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
-        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <link rel="icon" href="/web-app-manifest-512x512.png" type="image/png" sizes="512x512" />
+        <link rel="icon" href="/web-app-manifest-192x192.png" type="image/png" sizes="192x192" />
+        <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#031273" />
         <meta name="msapplication-TileColor" content="#031273" />
-        <meta name="msapplication-TileImage" content="/favicons/android-chrome-192x192.png" />
+        <meta name="msapplication-TileImage" content="/web-app-manifest-192x192.png" />
       </head>
       <body
         className={`${josefinSans.variable} antialiased min-h-dvh`}
